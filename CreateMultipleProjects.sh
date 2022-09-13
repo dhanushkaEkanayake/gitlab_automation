@@ -1,6 +1,6 @@
-GIT_API="https://git.zone24x7.lk/api/v4"
-GIT_TOKEN="bVJ9jFDovV6vUEg-UmCt"
-GROUP_ID="1079"
+GIT_API="your_api_url"
+GIT_TOKEN="your_personel_access_token"
+GROUP_ID="group_id"
 
 for (( e=0; e<150; e++ ))
 do
