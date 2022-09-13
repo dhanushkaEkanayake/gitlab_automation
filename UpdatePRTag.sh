@@ -1,9 +1,10 @@
-GIT_API="https://git.zone24x7.lk/api/v4"
-GIT_TOKEN="bVJ9jFDovV6vUEg-UmCt"
+GIT_API="your_api_url"
+GIT_TOKEN="your_personel_access_token"
+GROUP_NAME="group_name"
 
 #@@@@@@@@@@@@@@@@@@@@@#
 #                     #
-#	 Main Function    #
+#    Main Function    #
 #                     #
 #@@@@@@@@@@@@@@@@@@@@@#
 
@@ -11,13 +12,13 @@ GIT_TOKEN="bVJ9jFDovV6vUEg-UmCt"
 main() {
 		
         getGroupID
-		updateDescription
+	updateDescription
 }
 
 
 #====================================#
 #                                    #
-#	 Function to get the Group ID    #
+#    Function to get the Group ID    #
 #                                    #
 #====================================#
 
@@ -39,11 +40,11 @@ getGroupID() {
 			GROUP_ID=$(curl -sS --request GET --header "PRIVATE-TOKEN: $GIT_TOKEN"\
                         	-g "$GIT_API/groups?owned=true&top_level_only=true&per_page=100&page=${d}&search=$GROUP_NAME" | jq -r ".[] .id")
  		fi      
-    done
+    	done
     
     #-----------Un comment this to print the retrieved group ID----------
-	#	echo -e " "${GROUP_ID}""
-	#----------------------------------------------------------
+    #	echo -e " "${GROUP_ID}""
+    #--------------------------------------------------------------------
     
     if [ -z "${GROUP_ID}" ] #-------Check whether is there any group for the given group name or not
     then
@@ -55,7 +56,7 @@ getGroupID() {
 
 #=================================#
 #                                 #
-#	Function to put Description   #
+#   Function to put Description   #
 #                                 #
 #=================================#
 
@@ -93,7 +94,7 @@ updateDescription() {
 		echo "${DESCRIPTION// /%20}" > dump.txt #--------Replace the spaces with space url encode
 
 		DESCRIPTION=$(cat dump.txt)
-        rm -rf dump.txt
+      		rm -rf dump.txt
 
 		curl --silent --output /dev/null --request PUT --header "PRIVATE-TOKEN: $GIT_TOKEN" -g "$GIT_API/groups/${GROUP_ID}?description=${DESCRIPTION}"
 		
