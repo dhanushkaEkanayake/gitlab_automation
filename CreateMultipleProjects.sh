@@ -1,6 +1,8 @@
-GIT_API="your_api_url"
-GIT_TOKEN="your_personel_access_token"
-GROUP_ID="group_id"
+#!/bin/bash
+
+GIT_API="http://gitlab.serverlab.com/api/v4"
+GIT_TOKEN="glpat-MLCucPiBYG9TWZhToa9Z"
+GROUP_ID="12"
 
 for (( e=0; e<150; e++ ))
 do
