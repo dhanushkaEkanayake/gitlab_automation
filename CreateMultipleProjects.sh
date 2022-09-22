@@ -1,10 +1,10 @@
 #!/bin/bash
 
-GIT_API="http://gitlab.serverlab.com/api/v4"
-GIT_TOKEN="glpat-MLCucPiBYG9TWZhToa9Z"
-GROUP_ID="12"
+GIT_API="http://gitlab.serverlab.com/api/v4" 	#replace with your api url
+GIT_TOKEN="glpat-MLCucPiBYG9TWZhToa9Z"    #replace with your personal access token
+GROUP_ID="12"    #replace with desired group ID
 
-for (( e=0; e<150; e++ ))
+for (( e=0; e<150; e++ ))  #no.of new projects required / ex:- 150
 do
         curl\
                 --request POST\
