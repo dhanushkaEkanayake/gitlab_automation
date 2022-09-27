@@ -1,12 +1,8 @@
 #!/bin/bash
 
-GIT_API="http://gitlab.serverlab.com/api/v4"
-GIT_TOKEN="glpat-MLCucPiBYG9TWZhToa9Z"
-GROUP_ID="12"
+GIT_API="http://gitlab.serverlab.com/api/v4"	#replace with your api url
+GIT_TOKEN="glpat-MLCucPiBYG9TWZhToa9Z"	#replace with your personal access token     
 
-for (( c=150; c<154; c++ ))  #no.of new projects required / ex:- 100
-do
-	 curl\
+	curl\
                 --request DELETE\
-                --header "PRIVATE-TOKEN: $GIT_TOKEN" "$GIT_API/projects/${c}"
-done
+                --header "PRIVATE-TOKEN: $GIT_TOKEN" "$GIT_API/projects/4"
