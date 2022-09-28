@@ -8,6 +8,6 @@ GROUP_ID="12"    #replace with desired group ID
 
 	for i in ${name[@]}
 	do
-        	curl --stderr  -sS --request POST --header "PRIVATE-TOKEN: $GIT_TOKEN" \
+        	curl --request POST --header "PRIVATE-TOKEN: $GIT_TOKEN" \
 			"$GIT_API/projects?name=${i}&namespace_id=${GROUP_ID}"
 	done
