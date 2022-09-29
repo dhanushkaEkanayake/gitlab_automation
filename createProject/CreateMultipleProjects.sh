@@ -16,7 +16,7 @@ main(){
 getGroupID() {
 
 	#-----To get the no of group result pages
-	total_pages=$(curl -I --request GET --header "PRIVATE-TOKEN: $GIT_TOKEN" "$GIT_API/groups?owned=true&top_level_only=true&per_page=100" | grep -Fi X-Total-Pages | sed 's/[^0-9]*//g')
+	total_pages=$(curl -sS -I --request GET --header "PRIVATE-TOKEN: $GIT_TOKEN" "$GIT_API/groups?owned=true&top_level_only=true&per_page=100" | grep -Fi X-Total-Pages | sed 's/[^0-9]*//g')
     
     
 	for (( d=1; d<=${total_pages+1}; d++ ))
@@ -49,7 +49,7 @@ createProjects(){
 
 	for (( e=0; e<10; e++ ))  #no.of new projects required
 	do
-        	curl\
+        	curl -sS \
                 	--request POST\
                 	--header "PRIVATE-TOKEN: $GIT_TOKEN" "$GIT_API/projects?name=Project${e}&namespace_id=${GROUP_ID}"
 
