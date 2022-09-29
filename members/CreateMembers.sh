@@ -5,7 +5,7 @@ GIT_TOKEN="glpat-MLCucPiBYG9TWZhToa9Z"    #replace with your personal access tok
 
 	readarray -t name < sampleMembersNames.txt
 	readarray -t username < sampleUserNames.txt
-	readarray -t email < sampleemails.txt
+	readarray -t email < sampleEmails.txt
 
 	for (( c=0; c<${#name[@]}; c++ ))
 	do
