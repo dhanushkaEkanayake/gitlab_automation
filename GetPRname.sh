@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 GIT_API="http://gitlab.serverlab.com/api/v4"	#replace with your api url
 GIT_TOKEN="glpat-MLCucPiBYG9TWZhToa9Z"	#replace with your personal access token
 GROUP_NAME="test_one"
+=======
+GIT_API="your_api_url"
+GIT_TOKEN="your_personel_access_token"
+GROUP_NAME="group_name"
+>>>>>>> 9bb565eb6592d6cd2121ed980fa2d1c31233bd26
 
 
 #@@@@@@@@@@@@@@@@@@@@@#
