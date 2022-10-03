@@ -4,6 +4,16 @@ GIT_API="http://gitlab.serverlab.com/api/v4"	#replace with your api url
 GIT_TOKEN="glpat-MLCucPiBYG9TWZhToa9Z"	#replace with your personal access token
 GROUP_NAME="test_one"
 
+main(){
+	
+	getGroupID
+	getMemberDetails
+	removeMembers
+		
+}
+
+
+getGroupID(){
 	
 	#-----To get the no of group result pages
 	total_pages=$(curl -I --request GET --header "PRIVATE-TOKEN: $GIT_TOKEN" "$GIT_API/groups?owned=true&top_level_only=true&per_page=100" | grep -Fi X-Total-Pages | sed 's/[^0-9]*//g')
@@ -31,8 +41,10 @@ GROUP_NAME="test_one"
     		echo -e "\n Invalid Group Name...!! \n"
         	exit 1
     	fi
+}
 
 
+getMemberDetails(){
 	
 
 	#-------To get the no of members result pages
@@ -55,7 +67,10 @@ GROUP_NAME="test_one"
 		echo ${USER_ACCESS_LEVEL_ARRAY[*]}
 	#------------------------------------------------------------
 
+}
 
+
+removeMembers(){
 	
 	
 	for (( c=0; c<${#USER_ACCESS_LEVEL_ARRAY[@]}; c++ )) #------Determine the user IDs of the members without ownership
@@ -89,3 +104,7 @@ GROUP_NAME="test_one"
         	printf "%s\n" "${MEMBERS_WITHOUT_OWNERSHIP_USER_ACCESS_LEVEL_ARRAY[@]}" > ${GROUP_ID}_userAccessLevel.txt
 
 	fi
+}
+
+
+main
